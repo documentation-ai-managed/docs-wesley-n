@@ -1,0 +1,134 @@
+---
+title: Introduction to Wesley N
+description: Welcome to Wesley N, your default documentation space designed to organize and manage all your project documentation efficiently.
+---
+
+## Overview
+
+Wesley N provides a centralized platform where you create, organize, and manage all your project documentation. You build custom documentation spaces tailored to your needs, with features for collaboration, version control, and seamless search. Use it to document APIs, user guides, or internal wikis efficiently.
+
+The platform integrates your brand seamlessly, starting with the primary color `#3B82F6`. You access everything from a clean dashboard at `https://dashboard.wesleyn.com`.
+
+<Callout kind="info">
+  New to Wesley N? Start with the <a href="#quick-start">Quick Start</a> section below.
+</Callout>
+
+## Key Features
+
+Wesley N simplifies documentation management with powerful tools.
+
+<Columns cols={3}>
+  <Card title="Custom Spaces" icon="folder" href="/docs/spaces">
+    Organize docs into dedicated spaces for projects, teams, or products. Nest pages hierarchically for intuitive navigation.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versioning">
+    Track changes with Git-like versioning. Roll back edits and collaborate without conflicts.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="/docs/search">
+    Full-text search across all spaces. Filter by tags, versions, or authors instantly.
+  </Card>
+</Columns>
+
+<Columns cols={2}>
+  <Card title="Collaboration" icon="users" href="/docs/collaboration">
+    Invite team members, assign roles, and review changes in real-time.
+  </Card>
+  <Card title="Export & Embed" icon="share-2" href="/docs/export">
+    Export to PDF, Markdown, or embed docs in your apps.
+  </Card>
+</Columns>
+
+## Brand Guidelines
+
+Maintain consistency with Wesley N's brand using the primary color `#3B82F6`.
+
+<Tabs>
+  <Tab title="CSS Usage" icon="code">
+    Apply the brand color in your custom themes or embeds.
+
+    <CodeGroup tabs="CSS,SCSS">
+    ````css
+    :root {
+      --primary-color: #3B82F6;
+    }
+
+    .button-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    ````
+    ````scss
+    $primary: #3B82F6;
+
+    .button-primary {
+      background-color: $primary;
+      color: white;
+    }
+    ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Integration Tips" icon="settings">
+    Use the color for buttons, links, and accents. Ensure WCAG compliance by pairing with sufficient contrast ratios.
+
+    <ul>
+      <li>Primary buttons: `#3B82F6` on white</li>
+      <li>Hovers: `#2563EB` (darker shade)</li>
+      <li>Avoid pure black text on brand color</li>
+    </ul>
+  </Tab>
+</Tabs>
+
+## Quick Start
+
+Get up and running in minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://wesleyn.com` and create your free account.
+  </Step>
+  <Step title="Create Space" icon="folder-plus">
+    From the dashboard, click "New Space" and name it for your project.
+  </Step>
+  <Step title="Add Pages" icon="file-plus">
+    Start with an `introduction.mdx` file using the provided template.
+  </Step>
+  <Step title="Customize Theme" icon="palette">
+    Edit space settings to apply `#3B82F6` as your primary color.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+````javascript
+// Example: Embed Wesley N docs in your app
+const embedUrl = 'https://docs.wesleyn.com/your-space/introduction';
+fetch(embedUrl)
+  .then(response => response.text())
+  .then(html => document.getElementById('doc-embed').innerHTML = html);
+````
+````python
+# Python integration example
+import requests
+response = requests.get('https://docs.wesleyn.com/your-space/introduction')
+print(response.text)
+````
+</CodeGroup>
+
+## Next Steps
+
+Explore more with these guides.
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Build your first documentation space.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your spaces with API keys.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Stay updated with new features.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Need help? Check the <a href="/help-center">Help Center</a> or contact support.
+</Callout>

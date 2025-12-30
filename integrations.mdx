@@ -1,0 +1,153 @@
+---
+title: Integrations with Wesley N
+description: Learn how to connect Wesley N with external tools to streamline your documentation workflow and enhance productivity.
+---
+
+## Overview
+
+Wesley N supports seamless integrations with popular third-party tools, version control systems, webhooks, export/import features, and custom API endpoints. These capabilities enable you to automate workflows, sync content across platforms, and extend functionality for your specific needs.
+
+<Callout kind="info">
+  Review your Wesley N plan to ensure integration features are enabled. Start with the [dashboard](https://dashboard.example.com) to access the Integrations tab.
+</Callout>
+
+## Popular Third-Party Integrations
+
+Connect Wesley N to tools like Slack, GitHub, and Google Workspace to receive notifications, sync repositories, and collaborate efficiently.
+
+<Columns cols={3}>
+  <Card title="Slack" icon="message-circle" href="https://slack.com" target="_blank">
+    Send documentation updates and alerts directly to your Slack channels.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com" target="_blank">
+    Automatically sync docs with your repositories for version control.
+  </Card>
+  <Card title="Google Workspace" icon="file-text" href="https://workspace.google.com" target="_blank">
+    Import/export docs between Google Docs and Wesley N.
+  </Card>
+</Columns>
+
+## Sync with Version Control Systems
+
+Sync your Wesley N documentation with GitHub or GitLab repositories. This keeps your docs in version control and enables pull request previews.
+
+<Steps>
+  <Step title="Connect Repository" icon="git-branch">
+    Navigate to Integrations > VCS in your dashboard.
+    
+    Select GitHub or GitLab and authorize the app.
+  </Step>
+  <Step title="Configure Sync" icon="settings">
+    Choose the repository and branch (e.g., `main`).
+    
+    Enable auto-sync for pushes and pull requests.
+  </Step>
+  <Step title="Test Sync" icon="play">
+    Push a change to your repo and verify it appears in Wesley N.
+  </Step>
+</Steps>
+
+## Webhook Setup for Automation
+
+Set up webhooks to trigger actions on events like doc updates or publishes. Use them with Zapier, Make.com, or custom scripts.
+
+<Tabs>
+  <Tab title="Create Webhook" icon="plug">
+    In dashboard, go to Integrations > Webhooks > New Webhook.
+    
+    Set events (e.g., `doc.updated`, `doc.published`) and your endpoint URL.
+  </Tab>
+  <Tab title="cURL Example" icon="terminal">
+````bash
+curl -X POST https://api.example.com/v1/webhooks \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://your-webhook-url.com/webhook",
+    "events": ["doc.updated", "doc.published"]
+  }'
+````
+  </Tab>
+</Tabs>
+
+## Export and Import Capabilities
+
+Export your docs to Markdown, PDF, or HTML. Import from GitHub, Google Docs, or ZIP archives.
+
+<CodeGroup tabs="Markdown,PDF,HTML">
+```bash
+# Export to Markdown
+curl -X GET "https://api.example.com/v1/docs/export?format=md&doc_id=123" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  --output docs.md
+```
+
+```bash
+# Export to PDF
+curl -X GET "https://api.example.com/v1/docs/export?format=pdf&doc_id=123" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  --output docs.pdf
+```
+
+```bash
+# Export to HTML
+curl -X GET "https://api.example.com/v1/docs/export?format=html&doc_id=123" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  --output docs.html
+```
+</CodeGroup>
+
+<Callout kind="tip">
+  Use the `?include_attachments=true` query param to bundle images and files.
+</Callout>
+
+## Custom API Integrations
+
+Build custom integrations using Wesley N's REST API at `https://api.example.com/v1`.
+
+<ParamField path="doc_id" param-type="string" required="true">
+  Unique document identifier.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token: `Bearer YOUR_API_KEY`.
+</ParamField>
+
+<Request tabs="JavaScript,cURL">
+```javascript
+const response = await fetch('https://api.example.com/v1/docs/123', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+const doc = await response.json();
+console.log(doc);
+```
+
+```bash
+curl -X GET https://api.example.com/v1/docs/123 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+</Request>
+
+<Response tabs="200">
+```json
+{
+  "id": "123",
+  "title": "Integration Guide",
+  "content": "Markdown content here...",
+  "updated_at": "2024-10-15T10:00:00Z"
+}
+```
+</Response>
+
+## Next Steps
+
+Explore the [API reference](/api-reference) for more endpoints. Test integrations in a sandbox environment first to avoid disrupting production workflows.
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **Sync failures**: Check repository permissions and branch names.
+  - **Webhook timeouts**: Ensure your endpoint responds `<2s`.
+  - **Export limits**: Free plans cap at 10MB per export.
+</Expandable>

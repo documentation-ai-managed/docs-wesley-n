@@ -1,0 +1,159 @@
+---
+title: Getting Started with Wesley N
+description: Set up your Wesley N account and create your first documentation space to begin organizing projects right away.
+---
+
+## Overview
+
+Get started with Wesley N in minutes. Follow these steps to create an account, set up your first documentation space, upload files, explore the interface, and build your initial document. Wesley N helps you organize project docs efficiently.
+
+## Prerequisites
+
+<Callout kind="info">
+
+Before beginning, ensure you have:
+- A modern web browser like Chrome or Firefox
+- An email address for account verification
+- Optional: GitHub account for seamless integration
+
+</Callout>
+
+## Sign Up and Log In
+
+Create your Wesley N account quickly.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.example.com` and click **Sign Up**.
+  </Step>
+  <Step title="Enter Details" icon="user">
+    Provide your email, name, and password. Accept the terms.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox and click the verification link.
+  </Step>
+  <Step title="Log In" icon="log-in">
+    Return to the dashboard, enter credentials, and access your workspace.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Space
+
+Organize projects by creating dedicated spaces.
+
+<Steps>
+  <Step title="Click New Space" icon="plus">
+    In the sidebar, select **New Space**.
+  </Step>
+  <Step title="Name It" icon="edit-3">
+    Enter a name like `My Project Docs` and choose a description.
+  </Step>
+  <Step title="Set Permissions" icon="shield">
+    Configure public/private access and invite collaborators if needed.
+  </Step>
+  <Step title="Save and Enter" icon="check-circle">
+    Click **Create** to open your new space.
+  </Step>
+</Steps>
+
+## Upload Initial Project Files
+
+Add your project files via UI or CLI.
+
+<Tabs>
+  <Tab title="Drag & Drop" icon="upload">
+    In your space, drag files like `README.md` or folders directly into the file tree. Supported formats include MDX, Markdown, images, and PDFs.
+  </Tab>
+  <Tab title="CLI" icon="terminal">
+    Use the Wesley N CLI for bulk uploads.
+
+    <CodeGroup tabs="npm,yarn">
+      ```bash
+      npm install -g @wesleyn/cli
+      ```
+      ```bash
+      yarn global add @wesleyn/cli
+      ```
+    </CodeGroup>
+
+    Authenticate and upload:
+
+    ````bash
+    wesleyn login --email your@email.com
+    wesleyn space upload My Project Docs ./project-files --api-key YOUR_API_KEY
+    ````
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+
+Pro tip: Use the CLI for CI/CD pipelines to automate uploads from your repo.
+
+</Callout>
+
+## Basic Interface Walkthrough
+
+Familiarize yourself with key areas.
+
+<Columns cols={3}>
+  <Card title="Sidebar" icon="menu" href="#sidebar">
+    Navigate spaces, files, and settings.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="#editor">
+    Write MDX docs with live preview.
+  </Card>
+  <Card title="Preview" icon="eye" href="#preview">
+    Real-time rendering of your content.
+  </Card>
+</Columns>
+
+## Create Your First Document
+
+Build a simple doc right away.
+
+<Steps>
+  <Step title="New Document" icon="file-plus">
+    Right-click in the file tree and select **New MDX Document**. Name it `introduction.mdx`.
+  </Step>
+  <Step title="Add Frontmatter" icon="code">
+    Insert YAML frontmatter:
+
+    ````mdx
+    ---
+    title: My First Doc
+    description: Welcome to my project.
+    ---
+    ````
+  </Step>
+  <Step title="Write Content" icon="pen-tool">
+    Add headings and components:
+
+    ````mdx
+    ## Overview
+
+    Start your project docs here.
+    ````
+  </Step>
+  <Step title="Publish" icon="globe">
+    Click **Publish** to make it live.
+  </Step>
+</Steps>
+
+## Next Steps
+
+Explore more features.
+
+<Columns cols={2}>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Learn core concepts.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your spaces.
+  </Card>
+  <Card title="Advanced Guides" icon="settings" href="/guides">
+    Dive deeper.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated.
+  </Card>
+</Columns>

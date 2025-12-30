@@ -1,0 +1,150 @@
+---
+title: Wesley N Changelog
+description: Stay updated with the latest releases, feature additions, and improvements in the Wesley N documentation platform.
+---
+
+## Recent Releases
+
+Stay current with Wesley N's evolution. You access new capabilities by updating your instance. Review the highlights below to understand changes and plan your upgrades.
+
+<Update label="2024-10-15" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration editing for documentation pages
+- Introduced custom brand color configuration (`#3B82F6` default)
+- Enabled MDX component previews in the editor
+
+## Improvements
+
+- Enhanced search with fuzzy matching for faster navigation
+- Optimized page load times by `>30%`
+- Improved mobile responsiveness for all documentation views
+
+## Bug Fixes
+
+- Fixed sidebar navigation collapse on resize
+- Resolved export to PDF rendering issues with tables
+
+</Update>
+
+<Update label="2024-09-20" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated changelog component with automatic version tagging
+- Added support for custom domains in documentation spaces
+- Introduced version history rollback for pages
+
+## Bug Fixes
+
+- Patched authentication token refresh loop
+- Fixed image upload failures in private spaces
+- Corrected syntax highlighting for nested code blocks
+
+</Update>
+
+<Update label="2024-08-10" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy YAML frontmatter parser; migrate to strict mode
+
+## New Features
+
+- Launched core MDX documentation engine
+- Added project organization with spaces and folders
+- Enabled public/private access controls
+
+## Improvements
+
+- Streamlined onboarding with interactive quickstart
+
+</Update>
+
+## Upgrade Process
+
+Follow these steps to upgrade your Wesley N instance safely.
+
+<Callout kind="info">
+Backup your documentation space before upgrading. Use the export feature to create a full snapshot.
+</Callout>
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Export your space via the dashboard.
+
+    ```
+    curl -X POST https://api.example.com/export \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -d '{"spaceId": "your-space-id"}'
+    ```
+  </Step>
+  <Step title="Update" icon="download">
+    Pull the latest release.
+
+    <CodeGroup tabs="Docker,CLI">
+    ````bash
+    docker pull wesleyn/docs:latest
+    docker run -p 3000:3000 wesleyn/docs:latest
+    ````
+
+    ````bash
+    wesleyn update --version 1.3.0
+    ````
+    </CodeGroup>
+  </Step>
+  <Step title="Verify" icon="check-circle">
+    Test key features like editing and search.
+  </Step>
+  <Step title="Rollback if Needed" icon="rotate-ccw">
+    Restore from backup if issues arise.
+  </Step>
+</Steps>
+
+## Version Summary
+
+| Version | Date       | Key Changes                  | Tags              |
+|---------|------------|------------------------------|-------------------|
+| v1.3.0  | 2024-10-15 | Collaboration, performance   | feature, improvement |
+| v1.2.0  | 2024-09-20 | Changelog, domains           | feature, bugfix   |
+| v1.1.0  | 2024-08-10 | MDX engine, organization     | breaking, feature |
+
+## Upcoming Roadmap
+
+Explore planned enhancements.
+
+<Columns cols={2}>
+  <Card title="AI Assistance" icon="bot" href="#">
+    Automated content suggestions and summaries coming Q4 2024.
+  </Card>
+  <Card title="Advanced Analytics" icon="bar-chart-3" href="#">
+    Page views, engagement metrics, and SEO insights in Q1 2025.
+  </Card>
+  <Card title="Plugin System" icon="puzzle" href="#">
+    Extend with custom components and integrations.
+  </Card>
+  <Card title="Multi-Language" icon="globe" href="#">
+    Full i18n support for global teams.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Migration Guide for v1.1.0 Breaking Change" default-open="false">
+
+If you encounter issues with YAML parsing post-upgrade:
+
+1. Update frontmatter to strict format—no blank lines inside.
+2. Validate with the built-in linter.
+
+```yaml
+---
+title: "Page Title"
+description: "Brief desc"
+---
+```
+
+</Expandable>
+
+<Callout kind="tip">
+Submit feedback or report bugs via the [feedback form](https://dashboard.example.com/feedback). Your input shapes future releases.
+</Callout>
